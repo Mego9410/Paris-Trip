@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-void: #080808;
+  --color-smoke: #1a1a1a;
+  --color-gold: #c9a84c;
+  --color-champagne: #f5e6c8;
+  --color-cloud: rgba(255, 255, 255, 0.08);
+  --color-paris-warm: #e8d5b0;
+  --color-sky: #a8c4d8;
+}
+
+html {
+  background: var(--color-void);
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  cursor: default;
+  background: var(--color-void);
+  color: var(--color-champagne);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.bg-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@layer utilities {
+  .tracking-extreme {
+    letter-spacing: 0.4em;
+  }
+  .tracking-display {
+    letter-spacing: 0.6em;
+  }
+  .font-display {
+    font-family: var(--font-display), "Cormorant Garamond", serif;
+  }
+  .font-sans-light {
+    font-family: var(--font-sans), ui-sans-serif, system-ui;
+    font-weight: 300;
+  }
+  .text-readable {
+    text-shadow:
+      0 0 1px rgba(0, 0, 0, 0.78),
+      0 0 2px rgba(0, 0, 0, 0.68),
+      0 1px 2px rgba(0, 0, 0, 0.62),
+      0 2px 8px rgba(0, 0, 0, 0.5),
+      0 3px 14px rgba(0, 0, 0, 0.38);
+  }
+  .text-readable-strong {
+    text-shadow:
+      0 0 1px rgba(0, 0, 0, 0.82),
+      0 0 3px rgba(0, 0, 0, 0.74),
+      0 1px 2px rgba(0, 0, 0, 0.7),
+      0 2px 6px rgba(0, 0, 0, 0.6),
+      0 3px 14px rgba(0, 0, 0, 0.48),
+      0 5px 26px rgba(0, 0, 0, 0.38);
+  }
+}
+
+@keyframes pulseLine {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scaleY(0.6);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes moveCloud {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.pulse-line {
+  transform-origin: top center;
+  animation: pulseLine 2.6s ease-in-out infinite;
+}
