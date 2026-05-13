@@ -18,7 +18,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Paris — October 2025",
+  title: "FTA Surprise",
   description: "An invitation.",
 };
 
